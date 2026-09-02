@@ -2,7 +2,7 @@
 
 [![Terraform CI](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml)
 
-A hands-on infrastructure learning lab for practicing professional Terraform patterns locally first, then extending the same concepts into AWS, Google Cloud, and Kubernetes.
+A hands-on infrastructure learning lab for practicing professional Terraform patterns locally first, then extending the same concepts into AWS, Google Cloud, Azure, and Kubernetes.
 
 ## Learning docs
 
@@ -13,8 +13,9 @@ Start here if you want to understand the project instead of only running it:
 - [Multi-Cloud Roadmap](docs/cloud-roadmap.md)
 - [AWS Terraform Learning Track](docs/aws/README.md)
 - [Google Cloud Terraform Learning Track](docs/gcp/README.md)
+- [Azure Terraform Learning Track](docs/azure/README.md)
 
-The lesson plan covers Terraform fundamentals, state, lifecycle, variables, modules, environments, CI, security, AWS, Google Cloud, and the Terraform/Kubernetes boundary.
+The lesson plan covers Terraform fundamentals, state, lifecycle, variables, modules, environments, CI, security, AWS, Google Cloud, Azure, multi-cloud comparison, and the Terraform/Kubernetes boundary.
 
 ## What the current lab builds
 
@@ -51,7 +52,9 @@ terraform-infrastructure-lab/
 │   ├── cloud-roadmap.md
 │   ├── aws/
 │   │   └── README.md
-│   └── gcp/
+│   ├── gcp/
+│   │   └── README.md
+│   └── azure/
 │       └── README.md
 ├── environments/
 │   ├── dev/
@@ -114,7 +117,7 @@ The workflow can also be started manually with `workflow_dispatch`.
 - `init`, `fmt`, `validate`, `plan`, `apply`, and `destroy`
 - GitHub Actions Terraform CI
 - Multi-cloud infrastructure concepts
-- AWS and Google Cloud provider learning
+- AWS, Google Cloud, and Azure provider learning
 - Terraform-to-Kubernetes architecture
 
 ## Roadmap
@@ -126,5 +129,7 @@ The repo will grow in deliberate layers:
 3. Pull-request plan review
 4. Small AWS labs: identity, VPC, storage, compute, containers
 5. Small Google Cloud labs: projects, VPC, storage, compute, containers
-6. Remote-state/team patterns
-7. Kubernetes infrastructure with EKS/GKE only after the underlying networking and IAM concepts are understood
+6. Small Azure labs: resource groups, identity, VNets, storage, compute, containers
+7. Multi-cloud comparison exercises
+8. Remote-state/team patterns
+9. Kubernetes infrastructure with EKS/GKE/AKS only after the underlying networking and identity concepts are understood
