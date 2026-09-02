@@ -8,6 +8,7 @@ This directory turns `terraform-infrastructure-lab` into a guided hands-on learn
 2. [Multi-Cloud Roadmap](./cloud-roadmap.md)
 3. [AWS Learning Track](./aws/README.md)
 4. [Google Cloud Learning Track](./gcp/README.md)
+5. [Azure Learning Track](./azure/README.md)
 
 ## Core goal
 
@@ -19,13 +20,13 @@ Build enough understanding to explain not only **what** a Terraform configuratio
 - how modules improve reuse
 - how environments should be separated
 - how CI checks infrastructure changes
-- how Terraform maps the same infrastructure concepts across Docker, AWS, Google Cloud, and Kubernetes
+- how Terraform maps the same infrastructure concepts across Docker, AWS, Google Cloud, Azure, and Kubernetes
 
 ## Ground rules
 
 - Learn locally first when possible.
 - Read every `terraform plan` before applying it.
-- Never commit secrets, credentials, service-account keys, or Terraform state containing sensitive values.
+- Never commit secrets, credentials, service-account keys, client secrets, or Terraform state containing sensitive values.
 - Prefer small labs that can be destroyed immediately after use.
 - Treat `terraform destroy` as part of every cloud lab.
 - Keep provider-specific code isolated so the repository remains understandable.
@@ -38,7 +39,8 @@ terraform-infrastructure-lab/
 │   ├── lesson-plan.md
 │   ├── cloud-roadmap.md
 │   ├── aws/
-│   └── gcp/
+│   ├── gcp/
+│   └── azure/
 ├── modules/
 │   └── app/
 ├── environments/
@@ -48,8 +50,9 @@ terraform-infrastructure-lab/
 ├── labs/
 │   ├── docker/
 │   ├── aws/
-│   └── gcp/
+│   ├── gcp/
+│   └── azure/
 └── .github/workflows/
 ```
 
-The existing Docker lab remains the safest place to learn Terraform mechanics before introducing cloud accounts, IAM, billing, networking, and managed services.
+The existing Docker lab remains the safest place to learn Terraform mechanics before introducing cloud accounts, IAM/identity, billing, networking, and managed services.
