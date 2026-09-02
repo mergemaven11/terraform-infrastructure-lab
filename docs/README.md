@@ -5,10 +5,14 @@ This directory turns `terraform-infrastructure-lab` into a guided hands-on learn
 ## Learning path
 
 1. [Terraform Lesson Plan](./lesson-plan.md)
-2. [Multi-Cloud Roadmap](./cloud-roadmap.md)
-3. [AWS Learning Track](./aws/README.md)
-4. [Google Cloud Learning Track](./gcp/README.md)
-5. [Azure Learning Track](./azure/README.md)
+2. [Terraform Homework](./homework.md)
+3. [Troubleshooting Labs](./troubleshooting-labs.md)
+4. [Learning Progress Checklist](./progress-checklist.md)
+5. [Terraform + Multi-Cloud Interview Questions](./interview-questions.md)
+6. [Multi-Cloud Roadmap](./cloud-roadmap.md)
+7. [AWS Learning Track](./aws/README.md)
+8. [Google Cloud Learning Track](./gcp/README.md)
+9. [Azure Learning Track](./azure/README.md)
 
 ## Core goal
 
@@ -21,6 +25,31 @@ Build enough understanding to explain not only **what** a Terraform configuratio
 - how environments should be separated
 - how CI checks infrastructure changes
 - how Terraform maps the same infrastructure concepts across Docker, AWS, Google Cloud, Azure, and Kubernetes
+- how to diagnose failures without blindly changing code
+
+## Study loop
+
+For each topic, use this loop:
+
+```text
+Learn concept
+    ↓
+Predict behavior
+    ↓
+Build / change lab
+    ↓
+Read Terraform plan
+    ↓
+Break something intentionally
+    ↓
+Troubleshoot it
+    ↓
+Explain it in your own words
+    ↓
+Check skill off only when repeatable
+```
+
+The homework scoring rubric intentionally distinguishes between **following instructions**, **understanding**, and **independent troubleshooting**.
 
 ## Ground rules
 
@@ -30,6 +59,8 @@ Build enough understanding to explain not only **what** a Terraform configuratio
 - Prefer small labs that can be destroyed immediately after use.
 - Treat `terraform destroy` as part of every cloud lab.
 - Keep provider-specific code isolated so the repository remains understandable.
+- Predict before running commands whenever practical.
+- Break labs only in controlled environments that are safe to destroy.
 
 ## Suggested repository direction
 
@@ -37,6 +68,10 @@ Build enough understanding to explain not only **what** a Terraform configuratio
 terraform-infrastructure-lab/
 ├── docs/
 │   ├── lesson-plan.md
+│   ├── homework.md
+│   ├── troubleshooting-labs.md
+│   ├── progress-checklist.md
+│   ├── interview-questions.md
 │   ├── cloud-roadmap.md
 │   ├── aws/
 │   ├── gcp/
