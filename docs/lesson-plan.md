@@ -265,9 +265,53 @@ The goal is to recognize infrastructure concepts across providers rather than me
 
 ---
 
-## Phase 8 — Kubernetes + Terraform
+## Phase 8 — Azure
 
-After Terraform, AWS, and Google Cloud fundamentals are comfortable, connect Terraform to Kubernetes.
+Follow [Azure Learning Track](./azure/README.md).
+
+Map the same ideas to:
+
+- subscriptions and tenants
+- resource groups
+- Virtual Networks (VNets)
+- subnets
+- Network Security Groups
+- Azure RBAC / Microsoft Entra ID concepts
+- Storage Accounts and Blob Storage
+- Azure Virtual Machines
+- Azure Container Registry
+- AKS
+
+Azure adds an especially useful concept to learn: the **resource group** as an explicit lifecycle and organizational boundary for related resources.
+
+Do not jump immediately to AKS. Learn resource groups, identity, networking, storage, and container registries first.
+
+---
+
+## Phase 9 — Multi-Cloud Comparison
+
+Do not memorize three unrelated clouds. Compare them deliberately.
+
+Be able to map:
+
+| Concept | AWS | Google Cloud | Azure |
+| --- | --- | --- | --- |
+| Network | VPC | VPC network | VNet |
+| Traffic control | Security Group | Firewall rule | NSG |
+| Object storage | S3 | Cloud Storage | Blob Storage |
+| VM | EC2 | Compute Engine | Azure VM |
+| Registry | ECR | Artifact Registry | ACR |
+| Kubernetes | EKS | GKE | AKS |
+
+Exercise:
+
+Take one simple requirement — network + controlled inbound traffic + small compute workload + useful outputs — and sketch how you would implement it in all three providers.
+
+---
+
+## Phase 10 — Kubernetes + Terraform
+
+After Terraform and the three cloud fundamentals are comfortable, connect Terraform to Kubernetes.
 
 Understand the boundary:
 
@@ -290,7 +334,7 @@ Avoid forcing Terraform to own everything simply because it can.
 
 ---
 
-# Suggested 8-Week Schedule
+# Suggested 10-Week Schedule
 
 | Week | Focus | Deliverable |
 | --- | --- | --- |
@@ -301,7 +345,9 @@ Avoid forcing Terraform to own everything simply because it can.
 | 5 | AWS fundamentals | First small AWS Terraform lab |
 | 6 | AWS networking/IAM | Reusable AWS module exercise |
 | 7 | Google Cloud fundamentals | First small GCP Terraform lab |
-| 8 | Kubernetes connection | Explain Terraform-to-cluster architecture |
+| 8 | Azure fundamentals | First small Azure Terraform lab |
+| 9 | Multi-cloud comparison | Map equivalent services across AWS/GCP/Azure |
+| 10 | Kubernetes connection | Explain Terraform-to-cluster architecture |
 
 # Graduation checklist
 
@@ -319,7 +365,8 @@ You should eventually be able to answer these without guessing:
 - Why should cloud credentials never be committed?
 - What does CI protect us from?
 - How would you troubleshoot a failed Terraform plan?
-- How do AWS and Google Cloud express the same networking concepts differently?
+- How do AWS, Google Cloud, and Azure express the same networking concepts differently?
+- What is an Azure resource group and why is it useful?
 - Where should Terraform stop and Kubernetes/Helm begin?
 
 If you can explain those clearly and demonstrate them in this repo, you are building practical Terraform understanding rather than tutorial-only familiarity.
