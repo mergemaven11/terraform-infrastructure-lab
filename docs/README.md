@@ -8,11 +8,12 @@ This directory turns `terraform-infrastructure-lab` into a guided hands-on learn
 2. [Terraform Homework](./homework.md)
 3. [Troubleshooting Labs](./troubleshooting-labs.md)
 4. [Learning Progress Checklist](./progress-checklist.md)
-5. [Terraform + Multi-Cloud Interview Questions](./interview-questions.md)
-6. [Multi-Cloud Roadmap](./cloud-roadmap.md)
-7. [AWS Learning Track](./aws/README.md)
-8. [Google Cloud Learning Track](./gcp/README.md)
-9. [Azure Learning Track](./azure/README.md)
+5. [Terraform Cheat Sheet](./terraform-cheatsheet.md)
+6. [Terraform + Multi-Cloud Interview Questions](./interview-questions.md)
+7. [Multi-Cloud Roadmap](./cloud-roadmap.md)
+8. [AWS Learning Track](./aws/README.md)
+9. [Google Cloud Learning Track](./gcp/README.md)
+10. [Azure Learning Track](./azure/README.md)
 
 ## Core goal
 
@@ -71,6 +72,7 @@ terraform-infrastructure-lab/
 │   ├── homework.md
 │   ├── troubleshooting-labs.md
 │   ├── progress-checklist.md
+│   ├── terraform-cheatsheet.md
 │   ├── interview-questions.md
 │   ├── cloud-roadmap.md
 │   ├── aws/
