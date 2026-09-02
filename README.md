@@ -1,4 +1,6 @@
-# Terraform Docker Lab
+# Terraform Infrastructure Lab
+
+[![Terraform CI](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml)
 
 A zero-cloud-cost Terraform project for practicing professional Terraform structure using your local Docker Engine.
 
@@ -25,7 +27,7 @@ docker version
 ## Project structure
 
 ```text
-terraform-docker-lab/
+terraform-infrastructure-lab/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
@@ -74,6 +76,16 @@ terraform plan -var-file=environments/staging/terraform.tfvars
 terraform destroy -var-file=environments/dev/terraform.tfvars
 ```
 
+## CI
+
+GitHub Actions automatically checks Terraform changes on pushes and pull requests to `main` by running:
+
+- `terraform fmt -check -recursive`
+- `terraform init -backend=false -input=false`
+- `terraform validate -no-color`
+
+The workflow can also be started manually with `workflow_dispatch`.
+
 ## Skills this project practices
 
 - Providers
@@ -85,6 +97,7 @@ terraform destroy -var-file=environments/dev/terraform.tfvars
 - Environment-specific `.tfvars`
 - Terraform state
 - `init`, `fmt`, `validate`, `plan`, `apply`, and `destroy`
+- GitHub Actions Terraform CI
 
 ## Next upgrade
 
@@ -96,5 +109,6 @@ A strong next step is an AWS version with:
 - ECR
 - ECS or EKS
 - S3 remote state
-- DynamoDB/S3 state locking strategy where appropriate
-- CI validation with GitHub Actions
+- state locking
+- policy/security scanning
+- pull-request plans
