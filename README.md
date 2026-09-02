@@ -2,9 +2,23 @@
 
 [![Terraform CI](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml)
 
-A zero-cloud-cost Terraform project for practicing professional Terraform structure using your local Docker Engine.
+A hands-on infrastructure learning lab for practicing professional Terraform patterns locally first, then extending the same concepts into AWS, Google Cloud, and Kubernetes.
 
-## What it builds
+## Learning docs
+
+Start here if you want to understand the project instead of only running it:
+
+- [Infrastructure Learning Hub](docs/README.md)
+- [Terraform Lesson Plan](docs/lesson-plan.md)
+- [Multi-Cloud Roadmap](docs/cloud-roadmap.md)
+- [AWS Terraform Learning Track](docs/aws/README.md)
+- [Google Cloud Terraform Learning Track](docs/gcp/README.md)
+
+The lesson plan covers Terraform fundamentals, state, lifecycle, variables, modules, environments, CI, security, AWS, Google Cloud, and the Terraform/Kubernetes boundary.
+
+## What the current lab builds
+
+The first implementation is intentionally local and zero-cloud-cost:
 
 - A dedicated Docker network
 - An NGINX web container
@@ -28,25 +42,29 @@ docker version
 
 ```text
 terraform-infrastructure-lab/
+├── .github/
+│   └── workflows/
+│       └── terraform-ci.yml
+├── docs/
+│   ├── README.md
+│   ├── lesson-plan.md
+│   ├── cloud-roadmap.md
+│   ├── aws/
+│   │   └── README.md
+│   └── gcp/
+│       └── README.md
+├── environments/
+│   ├── dev/
+│   ├── staging/
+│   └── prod/
+├── modules/
+│   └── app/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
 ├── providers.tf
 ├── versions.tf
-├── backend.tf
-├── modules/
-│   └── app/
-│       ├── main.tf
-│       ├── variables.tf
-│       ├── outputs.tf
-│       └── versions.tf
-└── environments/
-    ├── dev/
-    │   └── terraform.tfvars
-    ├── staging/
-    │   └── terraform.tfvars
-    └── prod/
-        └── terraform.tfvars
+└── backend.tf
 ```
 
 ## Run the dev environment
@@ -88,27 +106,25 @@ The workflow can also be started manually with `workflow_dispatch`.
 
 ## Skills this project practices
 
-- Providers
-- Resources
-- Variables
-- Outputs
-- Modules
-- `for_each`
+- Providers and resources
+- Variables, locals, and outputs
+- Modules and `for_each`
+- Terraform state and lifecycle
 - Environment-specific `.tfvars`
-- Terraform state
 - `init`, `fmt`, `validate`, `plan`, `apply`, and `destroy`
 - GitHub Actions Terraform CI
+- Multi-cloud infrastructure concepts
+- AWS and Google Cloud provider learning
+- Terraform-to-Kubernetes architecture
 
-## Next upgrade
+## Roadmap
 
-A strong next step is an AWS version with:
+The repo will grow in deliberate layers:
 
-- VPC
-- public/private subnets
-- security groups
-- ECR
-- ECS or EKS
-- S3 remote state
-- state locking
-- policy/security scanning
-- pull-request plans
+1. Local Docker Terraform fundamentals
+2. TFLint and IaC security scanning
+3. Pull-request plan review
+4. Small AWS labs: identity, VPC, storage, compute, containers
+5. Small Google Cloud labs: projects, VPC, storage, compute, containers
+6. Remote-state/team patterns
+7. Kubernetes infrastructure with EKS/GKE only after the underlying networking and IAM concepts are understood
