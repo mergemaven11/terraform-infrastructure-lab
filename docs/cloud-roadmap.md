@@ -1,22 +1,23 @@
 # Multi-Cloud Terraform Roadmap
 
-Adding AWS and Google Cloud to this repository is not weird — it is a good fit for an infrastructure lab **if each provider stays isolated and intentional**.
+Adding AWS, Google Cloud, and Azure to this repository is a good fit for an infrastructure lab **if each provider stays isolated and intentional**.
 
-The purpose is not to build the same giant platform three times. The purpose is to learn the infrastructure concepts that transfer between providers.
+The purpose is not to build the same giant platform four times. The purpose is to learn the infrastructure concepts that transfer between providers while understanding where each cloud differs.
 
 ## Concept mapping
 
-| Concept | Local Docker | AWS | Google Cloud |
-| --- | --- | --- | --- |
-| Provider boundary | Docker Engine | AWS account/region | GCP project/region |
-| Network | Docker network | VPC | VPC network |
-| Network segment | — | Subnet | Subnetwork |
-| Traffic rules | Port mappings | Security groups/NACL concepts | Firewall rules |
-| Object storage | Volume/file | S3 | Cloud Storage |
-| Identity | Local Docker access | IAM | Cloud IAM |
-| VM compute | Container host | EC2 | Compute Engine |
-| Container registry | Local image cache | ECR | Artifact Registry |
-| Managed Kubernetes | Local kind/minikube later | EKS | GKE |
+| Concept | Local Docker | AWS | Google Cloud | Azure |
+| --- | --- | --- | --- | --- |
+| Provider boundary | Docker Engine | AWS account/region | GCP project/region | Subscription/tenant/region |
+| Organizational container | Local project | Account/tag structure | Project | Resource group |
+| Network | Docker network | VPC | VPC network | Virtual Network (VNet) |
+| Network segment | — | Subnet | Subnetwork | Subnet |
+| Traffic rules | Port mappings | Security groups/NACL concepts | Firewall rules | Network Security Groups |
+| Object storage | Volume/file | S3 | Cloud Storage | Blob Storage |
+| Identity | Local Docker access | IAM | Cloud IAM | Microsoft Entra ID / Azure RBAC |
+| VM compute | Container host | EC2 | Compute Engine | Azure Virtual Machines |
+| Container registry | Local image cache | ECR | Artifact Registry | Azure Container Registry |
+| Managed Kubernetes | Local kind/minikube later | EKS | GKE | AKS |
 
 ## Recommended repository organization
 
@@ -30,7 +31,13 @@ labs/
 │   ├── 03-storage/
 │   ├── 04-compute/
 │   └── 05-containers/
-└── gcp/
+├── gcp/
+│   ├── 01-provider/
+│   ├── 02-networking/
+│   ├── 03-storage/
+│   ├── 04-compute/
+│   └── 05-containers/
+└── azure/
     ├── 01-provider/
     ├── 02-networking/
     ├── 03-storage/
@@ -63,7 +70,7 @@ Good candidates:
 - CI standards
 - documentation structure
 
-Avoid pretending AWS and GCP resources are identical. Provider-specific infrastructure should remain provider-specific when abstraction makes the code harder to understand.
+Avoid pretending AWS, GCP, and Azure resources are identical. Provider-specific infrastructure should remain provider-specific when abstraction makes the code harder to understand.
 
 ## Credential safety
 
@@ -71,6 +78,7 @@ Never commit:
 
 - AWS access keys
 - GCP service-account JSON keys
+- Azure client secrets or service-principal credentials
 - `.env` files containing secrets
 - Terraform state
 - generated plan files containing sensitive values
@@ -90,7 +98,17 @@ For every lab:
 5. Destroy it as soon as the exercise is complete.
 6. Confirm the destroy completed.
 
-Do not make expensive services such as managed Kubernetes the first cloud exercise.
+Do not make expensive services such as EKS, GKE, or AKS the first cloud exercise.
+
+## Recommended learning order
+
+1. Local Docker Terraform mechanics
+2. AWS fundamentals
+3. Google Cloud fundamentals
+4. Azure fundamentals
+5. Compare networking, identity, storage, compute, and container services across all three clouds
+6. Learn remote state and team workflows
+7. Move into EKS, GKE, and AKS only after networking and identity concepts are comfortable
 
 ## End goal
 
@@ -98,4 +116,4 @@ By the end of the multi-cloud track, you should be able to look at a requirement
 
 > Create an isolated network, allow controlled inbound traffic, deploy compute, expose useful outputs, and manage it safely through CI.
 
-…and implement the idea in Docker, AWS, or Google Cloud while understanding the provider-specific differences.
+…and implement the idea in Docker, AWS, Google Cloud, or Azure while understanding the provider-specific differences.
