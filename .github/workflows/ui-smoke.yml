@@ -1,0 +1,42 @@
+name: Learning UI Smoke
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "app.js"
+      - "netlify.toml"
+      - ".github/workflows/ui-smoke.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "app.js"
+      - "netlify.toml"
+      - ".github/workflows/ui-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax check
+        run: node --check app.js
+      - name: Verify static entrypoints
+        run: |
+          test -s index.html
+          test -s styles.css
+          test -s app.js
+          test -s netlify.toml
