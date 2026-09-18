@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive Terraform infrastructure learning lab with multi-cloud curriculum, architecture visualizations, and a safe browser CLI simulator." />
+  <title>Terraform Infrastructure Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#app-main">Skip to lab content</a>
+
+  <header class="app-header">
+    <a class="brand" href="#dashboard" data-nav="dashboard">
+      <span class="brand-mark">TF</span>
+      <span>
+        <strong>Terraform Infrastructure Lab</strong>
+        <small>Interactive IaC learning platform</small>
+      </span>
+    </a>
+    <div class="header-progress">
+      <div class="progress-copy"><span>Lab progress</span><strong id="progress-label">0%</strong></div>
+      <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+    </div>
+    <button id="mobile-menu" class="mobile-menu" type="button" aria-label="Open curriculum navigation">☰</button>
+  </header>
+
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar" aria-label="Terraform curriculum navigation">
+      <div class="sidebar-head">
+        <p class="eyebrow">Infrastructure curriculum</p>
+        <h2>Terraform + Multi-Cloud</h2>
+        <p>Predict → Plan → Break → Fix → Explain.</p>
+      </div>
+
+      <button class="nav-link active" type="button" data-nav="dashboard">
+        <span class="nav-icon">⌂</span>
+        <span><strong>Lab home</strong><small>Dashboard + simulator</small></span>
+      </button>
+
+      <nav id="phase-navigation"></nav>
+
+      <div class="sidebar-footer">
+        <div class="resource-card">
+          <strong>Safe by design</strong>
+          <span>The browser CLI simulates Terraform. It never receives cloud credentials or creates billable infrastructure.</span>
+        </div>
+        <button id="reset-progress" class="reset-button" type="button">Reset progress</button>
+        <a href="https://tcs-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">↗ Back to TCS Portfolio</a>
+        <a href="https://github.com/mergemaven11/terraform-infrastructure-lab" target="_blank" rel="noopener noreferrer">↗ View source on GitHub</a>
+      </div>
+    </aside>
+
+    <main id="app-main" class="main-content" tabindex="-1">
+      <section id="dashboard-view" class="view"></section>
+      <section id="phase-view" class="view" hidden></section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
