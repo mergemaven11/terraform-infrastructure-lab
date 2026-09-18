@@ -1,6 +1,10 @@
 # Terraform Infrastructure Lab
 
 [![Terraform CI](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/mergemaven11/terraform-infrastructure-lab/actions/workflows/terraform-ci.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2355887d-afc0-428b-ba1e-06e97cc19914/deploy-status)](https://app.netlify.com/projects/terraform-infrastructure-lab/deploys)
+![Terraform](https://img.shields.io/badge/Terraform-%3E%3D1.6-844FBA?logo=terraform&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)
+[![Last Commit](https://img.shields.io/github/last-commit/mergemaven11/terraform-infrastructure-lab)](https://github.com/mergemaven11/terraform-infrastructure-lab/commits/main)
 
 A hands-on infrastructure learning lab for practicing professional Terraform patterns locally first, then extending the same concepts into AWS, Google Cloud, Azure, and Kubernetes.
 
